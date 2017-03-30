@@ -1,0 +1,190 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_section_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/upload_to_radio_ayah"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_section_name"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="@string/title"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:singleLine="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="1"
+            android:id="@+id/qari_wrapper"
+            android:layout_below="@+id/et_file_name"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/select_qari_to_upload"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.9"
+            android:background="@drawable/rounded_edittext" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_weight="0.1"
+            android:src="@drawable/ic_action_new"
+            android:layout_height="50dp"
+            android:id="@+id/add_qari_button" />
+        </LinearLayout>
+        <RadioGroup
+            android:id="@+id/select_surah_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qari_wrapper"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <RadioButton
+                android:id="@+id/Quran"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/quran"
+                android:textColor="@color/nav_list_textview_name_background" />
+
+            <RadioButton
+                android:id="@+id/surah"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/surah"
+                android:textColor="@color/nav_list_textview_name_background"
+                android:checked="false" />
+
+            <RadioButton
+                android:id="@+id/ayah"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/verse"
+                android:textColor="@color/nav_list_textview_name_background"
+                android:checked="false" />
+
+            <RadioButton
+                android:id="@+id/juzz"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/juz"
+                android:textColor="@color/nav_list_textview_name_background"
+                android:checked="false" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/upload_audio_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/select_surah_group"
+            android:layout_margin="10dp"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/select_file_to_upload"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="0.5"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/rounded_green_button"
+                android:text="@string/browse_file"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/record_file_to_upload"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.5"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/rounded_green_button"
+                android:text="@string/recording"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_upload_file_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/upload_audio_wrapper"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="@string/tags_seperated_by_hashtags"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/et_upload_file_description"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/et_upload_file_tags"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="@string/description"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:singleLine="true" />
+
+        <CheckBox
+            android:id="@+id/is_downloadable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_upload_file_description"
+            android:checked="false"
+            android:text="@string/downloadable" />
+
+        <ProgressBar
+            android:id="@+id/upload_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_downloadable"
+            android:layout_marginTop="5dp"
+            android:max="100"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/upload_track_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/upload_progress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/rounded_green_button"
+            android:text="@string/upload"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</ScrollView>

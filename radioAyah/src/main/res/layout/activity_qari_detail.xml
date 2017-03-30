@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/activity_qari_detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/qari_recitations"
+        android:textColor="@color/explore_listview_text_color"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/track_details_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_qari_detail_title"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <com.radioayah.util.CircularImageView
+            android:id="@+id/qari_details_circular_qari_pic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/qari_details_circular_qari_pic"
+            android:layout_toRightOf="@+id/qari_details_circular_qari_pic">
+
+            <TextView
+                android:id="@+id/qari_details_qari_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/qari_name"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/qari_details_dob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/qari_details_qari_name"
+                android:text="@string/surah_name"
+                android:textColor="@color/explore_listview_qari_name_color" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/qari_details_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/track_details_header"
+        android:background="@color/explore_listview_values_color"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/set_qari_details_here"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="5"
+            android:scrollbars="vertical"
+            android:text="@string/details" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/activity_qari_detail_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qari_details_description"
+        android:text="@string/qari_tracks"
+        android:textColor="@color/explore_listview_text_color"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/qari_details_tracks_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_qari_detail_subtitle"
+        android:layout_marginTop="10dp"></ListView>
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <issue id="Instantiatable" severity="ignore" />
+    <issue id="MissingRegistered" severity="ignore" />
+    <issue id="NewApi">
+        <ignore path="src/com/radioayah/UploadFragment.java" />
+    </issue>
+    <issue id="OnClick" severity="ignore" />
+</lint>

@@ -1,0 +1,282 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="5dp"
+    android:paddingRight="@dimen/activity_horizontal_margin">
+
+    <LinearLayout
+        android:id="@+id/options_buttons_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/add_new_schedule"
+            android:layout_width="0dp"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/bottomborder"
+            android:text="@string/create_new"
+            android:textColor="@color/light_green_login_button" />
+
+        <Button
+            android:id="@+id/manage_schedules"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textSize="16sp"
+            android:background="@drawable/bottomborder"
+            android:text="@string/my_schedules"
+            android:textColor="@color/light_green_login_button" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/options_buttons_holder">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/section_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/add_listening_plan"
+                android:textSize="22sp"
+ />
+
+            <EditText
+                android:id="@+id/et_schedule_name"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/section_label"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:hint="@string/schedule_name"
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp" />
+
+            <TextView
+                android:id="@+id/tv_select_qari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_schedule_name"
+                android:visibility="gone"
+                android:layout_marginBottom="5dp"
+                android:text="@string/select_qari"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+ />
+
+            <Spinner
+                android:id="@+id/ls_select_qari_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_select_qari"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_edittext" />
+
+            <TextView
+                android:id="@+id/tv_select_listeningtype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ls_select_qari_spinner"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/select_surah"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+ />
+
+            <LinearLayout
+                android:id="@+id/select_surah_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_select_listeningtype"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/ls_select_surah_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+
+                    <RadioButton
+                        android:id="@+id/rg_juz"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:text="@string/juz"
+                        android:textColor="@color/nav_list_textview_name_background" />
+
+                    <RadioButton
+                        android:id="@+id/rg_surah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:text="@string/surah"
+                        android:textColor="@color/nav_list_textview_name_background"
+                        android:checked="false" />
+
+                    <RadioButton
+                        android:id="@+id/rg_quran"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:text="@string/quran"
+                        android:textColor="@color/nav_list_textview_name_background" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/select_surah_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/select_surah_holder"
+                android:background="@drawable/rounded_edittext" />
+
+            <LinearLayout
+                android:id="@+id/from_to_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_surah_spinner"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Spinner
+                    android:id="@+id/select_from_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext" />
+
+                <Spinner
+                    android:id="@+id/select_to_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_schedule_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/from_to_holder"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:hint="@string/schedule_duration"
+                android:inputType="number"
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/holder_time_am_pm"
+                android:gravity="center_vertical"
+                android:weightSum="1"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/et_schedule_duration"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_schedule_start_time"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:layout_weight="0.7"
+                android:hint="@string/schedule_start_time"
+                android:inputType="time"
+                android:maxLength="8"
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp" />
+
+            <Spinner
+                android:id="@+id/select_time_zone"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_edittext" />
+</LinearLayout>
+            <TextView
+                android:id="@+id/hilder_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/holder_time_am_pm"
+                android:layout_marginTop="10dp"
+                android:text="@string/reminder"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/reminder_layout_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hilder_text"
+                android:weightSum="2">
+
+                <RadioGroup
+                    android:id="@+id/ls_select_surah_group1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioButton
+                        android:id="@+id/rg_on"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/on"
+                        android:textColor="@color/nav_list_textview_name_background" />
+
+                    <RadioButton
+                        android:id="@+id/rg_off"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/off"
+                        android:textColor="@color/nav_list_textview_name_background" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/calculatetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reminder_layout_holder"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_green_button"
+                android:padding="10dp"
+                android:text="@string/calculate_time"
+                android:textColor="#FFF" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

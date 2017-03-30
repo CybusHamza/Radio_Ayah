@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "662455557424",
+    "firebase_url": "https://radio-ayah-379e7.firebaseio.com",
+    "project_id": "radio-ayah-379e7",
+    "storage_bucket": "radio-ayah-379e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662455557424:android:06b39266256de1f7",
+        "android_client_info": {
+          "package_name": "com.cybus.radioayah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662455557424-595lvtrjg75vei5pokoqkcj725uv55l0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cybus.radioayah",
+            "certificate_hash": "98FC78B60C72077F3B416D6E2FF2C954ABE0FE32"
+          }
+        },
+        {
+          "client_id": "662455557424-o7kam58ql8m2s8oe01s7qbimg5urn1gm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEbUlcbrYjC6VZC_HJkgPf2adN3ZbVtYY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662455557424-o7kam58ql8m2s8oe01s7qbimg5urn1gm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

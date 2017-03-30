@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <com.radioayah.util.CircularImageView
+        android:id="@+id/showuserprofilepicincommentslistview"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="0.2"
+        android:src="@drawable/qari_pic" />
+
+    <LinearLayout
+        android:id="@+id/wrapperincommetnssection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/showCommenttimestamphere"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:width="0dp"
+                android:paddingLeft="5dp"
+                android:text="@string/comment_here"
+                android:textColor="@color/light_green_login_button"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/flag_show"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.2"
+                android:src="@drawable/flag"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/showCommentListview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:width="0dp"
+            android:paddingLeft="5dp"
+            android:text="@string/comment_here"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

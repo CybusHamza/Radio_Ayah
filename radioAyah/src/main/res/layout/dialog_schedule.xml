@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:id="@+id/header_play_schedule"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="0dp"
+            android:src="@drawable/ic_action_previous"
+            android:layout_weight="0.15"
+            android:id="@+id/schedule_previous"
+            android:visibility="invisible"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/heading_schedule_dialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_weight="0.7"
+            android:text="@string/surah_name"
+            android:textColor="#000"
+            android:textSize="18sp" />
+        <ImageView
+            android:layout_width="0dp"
+            android:src="@drawable/ic_action_next"
+            android:id="@+id/schedule_next"
+            android:visibility="invisible"
+            android:layout_weight="0.15"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/ayah_schedule_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_play_schedule"
+        android:gravity="right"
+        android:maxLines="30"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="32sp" />
+    <TextView
+        android:id="@+id/ayah_schedule_dialog1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ayah_schedule_dialog"
+        android:gravity="right"
+        android:maxLines="30"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="32sp" />
+    <TextView
+        android:id="@+id/ayah_schedule_dialog2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ayah_schedule_dialog1"
+        android:gravity="right"
+        android:maxLines="30"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="32sp" />
+    <TextView
+        android:id="@+id/ayah_schedule_dialog3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ayah_schedule_dialog2"
+        android:gravity="right"
+        android:maxLines="30"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="32sp" />
+    <TextView
+        android:id="@+id/ayah_schedule_dialog4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ayah_schedule_dialog3"
+        android:gravity="right"
+        android:maxLines="30"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="32sp" />
+    <TextView
+        android:id="@+id/ayah_schedule_dialog5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ayah_schedule_dialog4"
+        android:gravity="right"
+        android:maxLines="30"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="32sp" />
+
+</RelativeLayout>

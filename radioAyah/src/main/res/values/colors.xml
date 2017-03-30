@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="blue" type="color">#FF33B5E5</item>
+    <item name="purple" type="color">#5A6A7A</item>
+    <item name="green" type="color">#FF99CC00</item>
+    <item name="orange" type="color">#FFFFBB33</item>
+    <item name="red" type="color">#FFFF4444</item>
+    <item name="darkblue" type="color">#FF0099CC</item>
+    <item name="darkpurple" type="color">#FF9933CC</item>
+    <item name="darkgreen" type="color">#FF669900</item>
+    <item name="darkorange" type="color">#FFFF8800</item>
+    <item name="darkred" type="color">#FFCC0000</item>
+    <color name="primary">#5A6A7A</color>
+    <color name="white">#FFFFFF</color>
+    <item name="greyBorder_login" type="color">#F2F2F2F2</item>
+    <item name="hint_black_login" type="color">#494949</item>
+    <item name="nav_background" type="color">#004648</item>
+    <item name="register_color" type="color">#01686D</item>
+    <item name="light_green_login_button" type="color">#7F9E1D</item>
+    <item name="dark_green_login_button_outline" type="color">#577400</item>
+    <item name="explore_listview_text_color" type="color">#868686</item>
+    <item name="explore_listview_qari_name_color" type="color">#8EAA31</item>
+    <item name="nav_list_textview_name_background" type="color">#739701</item>
+    <item name="explore_listview_values_color" type="color">#D9D9D9</item>
+    <integer-array name="androidcolors">
+        <item>@color/blue</item>
+        <item>@color/purple</item>
+        <item>@color/green</item>
+        <item>@color/orange</item>
+        <item>@color/red</item>
+        <item>@color/darkblue</item>
+        <item>@color/darkpurple</item>
+        <item>@color/darkgreen</item>
+        <item>@color/darkorange</item>
+        <item>@color/darkred</item>
+    </integer-array>
+</resources>

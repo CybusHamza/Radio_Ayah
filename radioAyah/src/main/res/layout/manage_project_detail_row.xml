@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/project_type_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+
+        <TextView
+            android:id="@+id/project_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:text="@string/type"
+            android:textSize="18sp"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/task_remove_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="0.3"
+            android:src="@drawable/remove"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/project_surah_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:text="@string/type"
+        android:textColor="@color/light_green_login_button" />
+
+    <LinearLayout
+        android:id="@+id/select_surah_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/ls_select_surah_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RadioButton
+                android:id="@+id/rg_start"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/not_started"
+                android:textColor="@color/nav_list_textview_name_background" />
+
+            <RadioButton
+                android:id="@+id/rg_progress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/in_progress"
+                android:textColor="@color/nav_list_textview_name_background" />
+
+            <RadioButton
+                android:id="@+id/rg_completed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/completed"
+                android:textColor="@color/nav_list_textview_name_background" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

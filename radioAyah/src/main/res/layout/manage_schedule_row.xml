@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_playlist_name"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/light_green_login_button" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/schedule_play_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="0.3"
+            android:src="@drawable/play" />
+
+        <ImageView
+            android:id="@+id/schedule_edit_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="0.3"
+            android:src="@drawable/edit" />
+
+        <ImageView
+            android:id="@+id/schedule_delete_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="0.3"
+            android:src="@drawable/remove" />
+
+        <ImageView
+            android:id="@+id/schedule_share_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="0.3"
+            android:src="@drawable/ic_action_share" />
+    </LinearLayout>
+</RelativeLayout>

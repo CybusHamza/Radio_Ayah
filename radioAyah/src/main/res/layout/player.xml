@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/player_layout"
+    style="@style/player_panel"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <ImageView
+        android:id="@+id/previous"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_action_previous" />
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="32dp"
+        android:layout_toRightOf="@+id/previous"
+        android:layout_marginLeft="10dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_action_play" />
+
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/play"
+        android:src="@drawable/ic_action_next" />
+    <LinearLayout
+        android:id="@+id/album_detail_miniPlayer"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/next"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/display_track_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/track_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/subTitle" />
+
+        <TextView
+            android:id="@+id/display_track_album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/album"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_text" />
+    </LinearLayout>
+    <ProgressBar
+        android:layout_width="30dp"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:id="@+id/radio_loader"
+        android:layout_height="30dp" />
+</RelativeLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <com.radioayah.util.CircularImageView
+        android:id="@+id/explore_list_circular_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/track_icon"
+        android:layout_marginStart="20dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/explore_list_circular_image"
+        android:layout_toRightOf="@+id/explore_list_circular_image">
+
+        <TextView
+            android:id="@+id/lv_surah_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qari_name"
+            android:textColor="@color/explore_listview_text_color"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lv_qari_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lv_surah_name"
+            android:text="@string/qari_name"
+            android:textColor="@color/explore_listview_qari_name_color" />
+
+        <ImageView
+            android:id="@+id/playlist_track_delete_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/remove"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/lv_buttons_holder"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_below="@+id/lv_qari_name"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical|center_horizontal">
+
+            <ImageView
+                android:id="@+id/lv_play_no_of_times_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/play" />
+
+            <TextView
+                android:id="@+id/lv_play_no_of_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/lv_play_no_of_times_icon"
+                android:layout_toRightOf="@+id/lv_play_no_of_times_icon"
+                android:text="12"
+                android:textColor="@color/explore_listview_values_color"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/lv_likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/lv_play_no_of_times"
+                android:layout_toRightOf="@+id/lv_play_no_of_times"
+                android:src="@drawable/heart" />
+
+            <TextView
+                android:id="@+id/lv_likes_explore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/lv_likes"
+                android:layout_toRightOf="@+id/lv_likes"
+                android:text="12"
+                android:textColor="@color/explore_listview_values_color"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/lv_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/options" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

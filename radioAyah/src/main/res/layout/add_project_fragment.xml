@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/project_buttons_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/add_new_project"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/bottomborder"
+            android:text="@string/create_new"
+            android:textSize="16sp"
+            android:textColor="@color/light_green_login_button" />
+
+        <Button
+            android:id="@+id/manage_projects"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textSize="16sp"
+            android:background="@drawable/bottomborder"
+            android:text="@string/my_projects"
+            android:textColor="@color/light_green_login_button" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/add_project_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/project_buttons_holder"
+        android:layout_margin="5dp"
+        android:text="@string/create_a_project"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_project_name"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/add_project_heading"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="@string/project_name"
+        android:paddingLeft="5dp"
+        android:paddingStart="5dp" />
+
+    <EditText
+        android:id="@+id/et_project_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/et_project_name"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="@string/project_description"
+        android:paddingLeft="5dp"
+        android:paddingStart="5dp" />
+
+    <Button
+        android:id="@+id/createProject"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_project_desc"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="right"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_green_button"
+        android:text="@string/create_project"
+        android:textColor="#FFF" />
+</RelativeLayout>

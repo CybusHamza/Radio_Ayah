@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/project_buttons_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+            <Button
+                android:id="@+id/add_new_project"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@drawable/bottomborder"
+                android:text="@string/create_new"
+                android:textSize="16sp"
+                android:textColor="@color/light_green_login_button" />
+
+            <Button
+                android:id="@+id/manage_projects"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:textSize="16sp"
+                android:background="@drawable/bottomborder"
+                android:text="@string/my_projects"
+                android:textColor="@color/light_green_login_button" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/manage_projects_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"></ListView>
+</LinearLayout>

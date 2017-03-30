@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/jsdfkjjfks"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_edittext"
+        android:text="@string/advanced_search"
+        android:textColor="#000"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/hilder_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/jsdfkjjfks"
+        android:layout_margin="10dp"
+        android:text="@string/select_qari"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/qari_name_search"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/hilder_text"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginLeft="8dp" />
+
+    <LinearLayout
+        android:id="@+id/project_select_surah_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/qari_name_search"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/ls_select_surah_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <RadioButton
+                android:id="@+id/rg_juz"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:checked="true"
+                android:text="@string/juz"
+                android:textColor="@color/nav_list_textview_name_background" />
+
+            <RadioButton
+                android:id="@+id/rg_surah"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:checked="true"
+                android:text="@string/surah"
+                android:textColor="@color/nav_list_textview_name_background" />
+
+            <RadioButton
+                android:id="@+id/rg_quran"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:checked="true"
+                android:text="@string/verse"
+                android:textColor="@color/nav_list_textview_name_background" />
+
+            <RadioButton
+                android:id="@+id/rg_quran1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/quran"
+                android:textColor="@color/nav_list_textview_name_background" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/select_surah_spinner"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:layout_below="@+id/project_select_surah_holder"
+        android:background="@drawable/rounded_edittext" />
+
+    <LinearLayout
+        android:id="@+id/from_to_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/select_surah_spinner"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Spinner
+            android:id="@+id/select_from_spinner"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/rounded_edittext"
+             />
+
+        <Spinner
+            android:id="@+id/select_to_spinner"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:visibility="gone"
+            android:background="@drawable/rounded_edittext"
+             />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/add_new_task"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/from_to_holder"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_green_button"
+        android:text="@string/search"
+        android:textColor="#FFF" />
+</LinearLayout>

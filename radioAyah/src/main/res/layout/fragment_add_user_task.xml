@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:layout_width="match_parent"
+        android:text="@string/add_new_task"
+        android:textColor="#000"
+        android:background="#FFF"
+        android:visibility="gone"
+        android:id="@+id/dialog_heading"
+        android:layout_height="50dp" />
+    <TextView
+        android:id="@+id/header_add_user_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@+id/dialog_heading"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#000" />
+
+    <LinearLayout
+        android:id="@+id/project_select_surah_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/header_add_user_task"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/ls_select_surah_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3.5">
+
+            <RadioButton
+                android:id="@+id/rg_juz"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/juz"
+                android:textColor="@color/nav_list_textview_name_background" />
+
+            <RadioButton
+                android:id="@+id/rg_surah"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/surah"
+                android:textColor="@color/nav_list_textview_name_background" />
+
+            <RadioButton
+                android:id="@+id/rg_quran"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/verse"
+                android:textColor="@color/nav_list_textview_name_background" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/select_surah_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/project_select_surah_holder"
+        android:background="@drawable/rounded_edittext" />
+
+    <LinearLayout
+        android:id="@+id/from_to_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/select_surah_spinner"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Spinner
+            android:id="@+id/select_from_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_edittext"
+            android:visibility="gone" />
+
+        <Spinner
+            android:id="@+id/select_to_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_edittext"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/add_new_task"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/from_to_holder"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="right"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_green_button"
+        android:text="@string/add_new_task"
+        android:textColor="#FFF" />
+
+    <ListView
+        android:id="@+id/user_task_list_view"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_new_task"></ListView>
+</RelativeLayout>
