@@ -70,7 +70,7 @@ public class ASyncRequest extends
             return "Exception";
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            return "Exception";
+            return "No internet Connection";
         }
         if (responseString.contains("unable to allocate memory for pool")) {
             return "Exception";

@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -217,7 +218,7 @@ public class Explore extends Activity  {
                         Fragment f = new TrackPlayFragment();
                         f.setArguments(b);
                         FragmentManager mng = getFragmentManager();
-                        mng.beginTransaction().replace(R.id.content_frame, f).addToBackStack(null).commit();
+                        mng.beginTransaction().replace(R.id.content_frame, f).commit();
                     }
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
@@ -288,9 +289,43 @@ public class Explore extends Activity  {
 
     @Override
     public void onBackPressed() {
+
+
         if (fragmentManager.getBackStackEntryCount() > 1) {
             fragmentManager.popBackStack();
+        } else if(fragmentManager.getBackStackEntryCount()==1)
+        {
+
+            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(
+                    Explore.this);
+            builder.setMessage(
+                    "Are you sure you want to Close Radio Ayah !!");
+            builder.setPositiveButton(R.string.yes,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog,
+                                            int id) {
+                            fragmentManager.popBackStack();
+
+                            finish();
+                        }
+                    });
+            builder.setNegativeButton(R.string.no,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog,
+                                            int id) {
+                        }
+                    });
+            builder.create();
+            builder.show();
         }
+        else {
+            finish();
+
+            super.onBackPressed();
+        }
+
     }
 
     @Override

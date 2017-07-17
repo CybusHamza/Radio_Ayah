@@ -147,9 +147,6 @@ public class NavDrawerListAdapter extends ArrayAdapter<String> {
                     img.setImageResource(R.drawable.download_icon);
                     break;
                 case 10:
-                    img.setImageResource(R.drawable.change);
-                    break;
-                case 11:
                     img.setImageResource(R.drawable.logout);
                     break;
             }

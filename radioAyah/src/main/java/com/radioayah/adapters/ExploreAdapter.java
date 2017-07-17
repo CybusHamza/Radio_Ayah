@@ -43,6 +43,7 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
     FragmentManager mng;
     boolean showdel = false;
     String playlist_id = "";
+     TextView t_likes;
 
     public ExploreAdapter(Context context, int textViewResourceId,
                           ArrayList<Track> records, boolean show, FragmentManager m,
@@ -92,7 +93,7 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
             t.setText(temp.getName());
             t = (TextView) row.findViewById(R.id.lv_play_no_of_times);
             t.setText(new StringBuilder().append(temp.getListens()).toString());
-            final TextView t_likes = (TextView) row
+             t_likes = (TextView) row
                     .findViewById(R.id.lv_likes_explore);
             t_likes.setText(new StringBuilder().append(temp.getLikes())
                     .toString());
@@ -101,6 +102,7 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
                 i.setVisibility(View.INVISIBLE);
             }
             ImageView i = (ImageView) row.findViewById(R.id.lv_options);
+            final View finalRow = row;
             i.setOnClickListener(new OnClickListener() {
 
                 @Override
@@ -132,7 +134,8 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
                                             Toast.makeText(context, response,
                                                     Toast.LENGTH_LONG).show();
                                             temp.setLike("false");
-
+                                            t_likes = (TextView) finalRow
+                                                    .findViewById(R.id.lv_likes_explore);
                                             if(response.equals("Un Liked."))
                                             {
                                                 t_likes.setText(new StringBuilder()
@@ -162,6 +165,8 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
                                         try {
                                             String response = obj.execute(params)
                                                     .get();
+                                            t_likes = (TextView) finalRow
+                                                    .findViewById(R.id.lv_likes_explore);
                                             if(response.equals("Liked."))
                                             {
                                                 t_likes.setText(new StringBuilder().append(
@@ -257,6 +262,7 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
             @Override
             public void onClick(View v) { // TODO Auto-generated method
                 Bundle b = new Bundle();
+                t_likes = (TextView) v.findViewById(R.id.lv_likes_explore);
                 b.putString("admin_url", temp.getAdmin_url());
                 b.putString("like", temp.getLike());
                 b.putString("track_type", temp.getTrack_type());
@@ -271,7 +277,7 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
                 b.putString("aimage", temp.getAimage());
                 b.putString("image", temp.getImage());
                 b.putString("isdownloadable", temp.getIsdownloadable());
-                b.putString("likes", temp.getLikes());
+                b.putString("likes", t_likes.getText().toString());
                 Fragment f = new TrackPlayFragment();
                 f.setArguments(b);
                 mng.beginTransaction().replace(R.id.content_frame, f)

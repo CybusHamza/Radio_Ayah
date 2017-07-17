@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.cybus.radioayah.R;
@@ -33,7 +34,7 @@ public class DownloadFragment extends Fragment {
     Context context;
     FragmentManager mng;
     Bundle b = null;
-    ArrayList<Download> tracks = new ArrayList<>();
+    ArrayList<Track> tracks = new ArrayList<>();
 
 
 
@@ -57,6 +58,7 @@ public class DownloadFragment extends Fragment {
 
         ((Explore) context).setActionBarTitle("My Downloads");
 
+
         ASyncRequest obj = new ASyncRequest(context, "getDownload");
         List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
         try {
@@ -66,19 +68,35 @@ public class DownloadFragment extends Fragment {
 
             for (int i = 0 ; i <=jsonArray.length();i++)
             {
-                JSONObject object = jsonArray.getJSONObject(i);
-                Download downlaod = new Download();
+                JSONObject inner = jsonArray.getJSONObject(i);
+                Track t = new Track();
 
-                downlaod.setTrack_id(object.getString("track_id"));
-                downlaod.setFname(object.getString("fname"));
-                downlaod.setLname(object.getString("lname"));
-                downlaod.setName(object.getString("name"));
-                downlaod.setListens(object.getString("listens"));
-                downlaod.setLikes(object.getString("likes"));
-                downlaod.setImage(object.getString("image"));
-                downlaod.setArtist_id(object.getString("artist_id"));
+                t.setTrack_type(inner.getString("track_type"));
+                t.setJuz_to(inner.getString("juz_to"));
+                t.setIs_verified(inner.getString("is_verified"));
+                t.setAimage(inner.getString("aimage"));
+                t.setListens(inner.getString("listens"));
+                t.setId(inner.getString("id"));
+                t.setJuz_id(inner.getString("juz_id"));
+                t.setUploaded_by(inner.getString("uploaded_by"));
+                t.setDescription(inner.getString("description"));
+                t.setName(inner.getString("name"));
+                t.setPath(inner.getString("path"));
+                t.setSurah_id(inner.getString("surah_id"));
+                t.setFname(inner.getString("fname"));
+                t.setLname(inner.getString("lname"));
+                t.setCountry_id(inner.getString("country_id"));
+                t.setUploader(inner.getString("uploader"));
+                t.setAyah_to(inner.getString("ayah_to"));
+                t.setImage(inner.getString("image"));
+                t.setArtist_id(inner.getString("artist_id"));
+                t.setDuration(inner.getString("duration"));
+                t.setAyah_from(inner.getString("ayah_from"));
+                t.setIsdownloadable(inner.getString("isdownloadable"));
+                t.setJuz_from(inner.getString("juz_from"));
+                t.setLikes(inner.getString("likes"));
 
-                tracks.add(downlaod);
+                tracks.add(t);
 
             }
 
@@ -94,7 +112,7 @@ public class DownloadFragment extends Fragment {
 
         ListView lv = (ListView) rootView.findViewById(R.id.download_listview);
         Download_Addaper adp = new Download_Addaper(context,
-                R.layout.activity_explore, tracks);
+                R.layout.activity_explore,mng, tracks);
         lv.setAdapter(adp);
 
         return rootView;

@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
+import com.cybus.radioayah.R;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,15 +26,11 @@ import com.radioayah.AllReciters;
 import com.radioayah.DownloadFragment;
 import com.radioayah.EditProfileFragment;
 import com.radioayah.ExploreFragment;
-import com.radioayah.LanguageFragment;
 import com.radioayah.ListeningFragment;
 import com.radioayah.MainActivity;
-import com.radioayah.ManagePlaylist;
-import com.radioayah.ManageProjectsFragment;
-import com.radioayah.ManageScheduleFragment;
 import com.radioayah.MusicFragment;
 import com.radioayah.MyLikesFragment;
-import com.cybus.radioayah.R;import com.radioayah.UploadFragment;
+import com.radioayah.UploadFragment;
 import com.radioayah.util.CustomProgressDialog;
 import com.radioayah.util.ProgressDialog;
 
@@ -126,13 +123,8 @@ public class NavDrawerOnItemClickListener implements OnItemClickListener {
 
                         break;
                     }
+
                     case 10: {
-
-                       f=new LanguageFragment() ;
-
-                        break;
-                    }
-                    case 11: {
                         if (MainActivity.currentSession.isFacebookLogin == true) {
                             LoginManager.getInstance().logOut();
                             mng.popBackStack();

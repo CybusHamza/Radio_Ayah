@@ -993,7 +993,7 @@ public class AmbientService extends Service implements
         }
 
         final Drawable placeholderDrawable = getResources().getDrawable(
-                R.drawable.unknown_album);
+                R.drawable.ic_launcher);
 
         try {
 

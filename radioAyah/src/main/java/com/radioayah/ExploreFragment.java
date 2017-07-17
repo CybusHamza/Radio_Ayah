@@ -109,18 +109,13 @@ public class ExploreFragment extends Fragment {
                         }
                     }
                 }
-            } catch (InterruptedException e) {
+            } catch (InterruptedException | JSONException | ExecutionException e) {
                 // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (JSONException e) {
                 e.printStackTrace();
             }
         } else {
             ASyncRequest obj = new ASyncRequest(context, "loadMostLikes");
-            List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+            List<BasicNameValuePair> params = new ArrayList<>();
             params.add(new BasicNameValuePair("count", "0"));
             try {
                 String response = obj.execute(params).get();
@@ -134,7 +129,6 @@ public class ExploreFragment extends Fragment {
                             Track t = new Track();
                             t.setAdmin_url(temp.getString("admin_url"));
                             t.setLike(temp.getString("like"));
-                            t.setLike("false");
                             JSONObject inner = temp.getJSONObject("content");
                             t.setTrack_type(inner.getString("track_type"));
                             t.setJuz_to(inner.getString("juz_to"));
@@ -166,13 +160,7 @@ public class ExploreFragment extends Fragment {
                         }
                     }
                 }
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (JSONException e) {
+            } catch (InterruptedException | ExecutionException | JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
@@ -183,5 +171,8 @@ public class ExploreFragment extends Fragment {
         lv.setAdapter(adp);
         return rootView;
     }
+
+
+
 
 }

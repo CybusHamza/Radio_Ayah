@@ -78,12 +78,13 @@ public class EditProfileFragment extends Fragment {
     DrawerLayout d;
     ActionBarDrawerToggle mDrawerToggle;
     ImageView img;
+    Uri filePath;
     private int PICK_IMAGE_REQUEST = 1;
     private String[] mMenuTitles;
     private ListView mDrawerList;
     private ImageView thumb_img = null;
     private Bitmap bitmap;
-    Uri filePath;
+
     public EditProfileFragment() {
     }
 
@@ -239,7 +240,7 @@ public class EditProfileFragment extends Fragment {
                                                             SharedPreferences sharedPref = context.getSharedPreferences("RadioAyahPreferences", Context.MODE_PRIVATE);
                                                             SharedPreferences.Editor editor = sharedPref.edit();
                                                             editor.remove("upload_picture");
-                                                            editor.putString("upload_picture",imagepath_server);
+                                                            editor.putString("upload_picture", imagepath_server);
 
                                                             editor.commit();
 
@@ -506,14 +507,12 @@ public class EditProfileFragment extends Fragment {
                                         SharedPreferences sharedPref = context.getSharedPreferences("RadioAyahPreferences", Context.MODE_PRIVATE);
                                         SharedPreferences.Editor editor = sharedPref.edit();
 
-                                        editor.putString("email",email );
-                                        editor.putString("upload_picture",imagepath_server);
-                                        editor.putString("last_name",lname);
-                                        editor.putString("first_name",fname);
+                                        editor.putString("email", email);
+                                        editor.putString("upload_picture", imagepath_server);
+                                        editor.putString("last_name", lname);
+                                        editor.putString("first_name", fname);
 
                                         editor.commit();
-
-
 
 
                                         d = (DrawerLayout) getActivity()

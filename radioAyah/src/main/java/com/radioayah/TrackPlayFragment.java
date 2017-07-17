@@ -1,5 +1,6 @@
 package com.radioayah;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
@@ -7,10 +8,13 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -57,6 +61,7 @@ public class TrackPlayFragment extends Fragment {
     String url;
     public static Session currentSession;
     AllCommentsAdapter adp = null;
+    private static final int REQUEST_PERMISSIONS = 20;
     public TrackPlayFragment() {
 
     }
@@ -167,32 +172,71 @@ public class TrackPlayFragment extends Fragment {
             }
         });
         img = (ImageView) rootView.findViewById(R.id.play_track_button);
+        final ImageView finalImg = img;
         img.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Buffering", Toast.LENGTH_LONG).show();
-                AmbientTrack track1 = AmbientTrack.newInstance();
-                track1.setName(b.getString("name"))
-                        .setId(new Random().nextInt(100) + 1)
-                        .setAlbumName(
-                                b.getString("fname") + " "
-                                        + b.getString("lname"))
-                        .setAudioUri(Uri.parse(Url));
 
-                Ambience.activeInstance()
-                        .setPlaylistTo(new AmbientTrack[]{track1}).play();
-                MusicFragment.setButtons(true);
-                TextView t = (TextView) rootView
-                        .findViewById(R.id.track_details_play_no_of_times);
-                t.setText(new StringBuilder().append(
-                        Integer.parseInt(t.getText().toString()) + 1)
-                        .toString());
-                MusicFragment.playing = true;
+
+                finalImg.setClickable(false);
+                finalImg.setEnabled(false);
+
                 ASyncRequest obj = new ASyncRequest(context, "trackcount/");
                 List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
                 params.add(new BasicNameValuePair("id", b.getString("id")));
-                obj.execute(params);
+                try {
+                    String reponce =  obj.execute(params).get();
+
+
+
+                    if(reponce.equals("No internet Connection"))
+                    {
+
+
+                        Toast.makeText(getActivity(), reponce, Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(context, "Buffering", Toast.LENGTH_LONG).show();
+
+
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Do something after 5s = 5000ms
+                                finalImg.setClickable(true);
+                                finalImg.setEnabled(true);
+                            }
+                        }, 5000);
+
+                        TextView t = (TextView) rootView
+                                .findViewById(R.id.track_details_play_no_of_times);
+                        t.setText(new StringBuilder().append(
+                                Integer.parseInt(t.getText().toString()) + 1)
+                                .toString());
+
+                        AmbientTrack track1 = AmbientTrack.newInstance();
+                        track1.setName(b.getString("name"))
+                                .setId(new Random().nextInt(100) + 1)
+                                .setAlbumName(
+                                        b.getString("fname") + " "
+                                                + b.getString("lname"))
+                                .setAudioUri(Uri.parse(Url));
+
+                        Ambience.activeInstance()
+                                .setPlaylistTo(new AmbientTrack[]{track1}).play();
+                        MusicFragment.setButtons(true);
+
+                        MusicFragment.playing = true;
+                    }
+
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
 //                ImageView img1 = (ImageView) rootView
 //                        .findViewById(R.id.play_track_button);
 //                img1.setEnabled(false);
@@ -297,47 +341,31 @@ public class TrackPlayFragment extends Fragment {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isdownloadable.equals("1")
-                        && Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-                    String url = Url;
-                    DownloadManager.Request request = new DownloadManager.Request(
-                            Uri.parse(url));
-                    request.setDescription("Radio Ayah");
-                    request.setTitle("Downloading " + path);
 
-                    // in order for this if to run, you must use the android 3.2
-                    // to compile your app
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                        request.allowScanningByMediaScanner();
-                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    }
-                    request.setDestinationInExternalPublicDir(
-                            Environment.DIRECTORY_DOWNLOADS, path);
-
-                    // get download service and enqueue file
-                    DownloadManager manager = (DownloadManager) context
-                            .getSystemService(Context.DOWNLOAD_SERVICE);
-                    manager.enqueue(request);
+                if (ActivityCompat.checkSelfPermission(getActivity(),  Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
 
-                    ASyncRequest obj = new ASyncRequest(context, "addToDownload");
-                    List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-                    params.add(new BasicNameValuePair("track_id", b.getString("id")));
-                    try {
-                        String response = obj.execute(params).get();
-                    } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
+                    if (Build.VERSION.SDK_INT > 22) {
+
+                        requestPermissions(new String[]{Manifest.permission
+                                        .WRITE_EXTERNAL_STORAGE},
+                                REQUEST_PERMISSIONS);
+                      /*  Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        Uri uri = Uri.fromParts("package", MainActivity.this.getPackageName(), null);
+                        intent.setData(uri);
+                        startActivityForResult(intent, REQUEST_PERMISSION_SETTING);*/
+                        // Toast.makeText(MainActivity.this.getBaseContext(), "Go to Permissions to Grant Storage", Toast.LENGTH_LONG).show();
+
                     }
 
-
-                } else if (isdownloadable.equals("0")) {
-                    Toast.makeText(context, "File can't be downloaded.",
-                            Toast.LENGTH_LONG).show();
                 }
+
+                else
+                {
+                    upload();
+
+                }
+
             }
         });
         img = (ImageView) rootView.findViewById(R.id.share_track_button);
@@ -393,6 +421,71 @@ public class TrackPlayFragment extends Fragment {
 
         }
         return rootView;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+
+
+
+        if (requestCode == REQUEST_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //The External Storage Write Permission is granted to you... Continue your left job...
+                upload();
+            } else {
+
+
+                Toast.makeText(getActivity(), "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    public void upload()
+    {
+        if (isdownloadable.equals("1")
+                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+            String url = Url;
+            DownloadManager.Request request = new DownloadManager.Request(
+                    Uri.parse(url));
+            request.setDescription("Radio Ayah");
+            request.setTitle("Downloading " + path);
+
+            // in order for this if to run, you must use the android 3.2
+            // to compile your app
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                request.allowScanningByMediaScanner();
+                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            }
+            request.setDestinationInExternalPublicDir(
+                    Environment.DIRECTORY_DOWNLOADS, path);
+
+            // get download service and enqueue file
+            DownloadManager manager = (DownloadManager) context
+                    .getSystemService(Context.DOWNLOAD_SERVICE);
+            manager.enqueue(request);
+
+
+            ASyncRequest obj = new ASyncRequest(context, "addToDownload");
+            List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+            params.add(new BasicNameValuePair("track_id", b.getString("id")));
+            try {
+                String response = obj.execute(params).get();
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+
+        } else if (isdownloadable.equals("0")) {
+            Toast.makeText(context, "File can't be downloaded.",
+                    Toast.LENGTH_LONG).show();
+        }
+
     }
 
     public void getComments(View rootView) {

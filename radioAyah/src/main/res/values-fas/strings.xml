@@ -19,7 +19,6 @@
         <item name="Project">پروژه</item>
         <item name="Listening_Schedule">برنامه زمانبندی حال گوش دادن</item>
         <item name="SwitchPlayer">سوئیچ رادیو</item>
-        <item name="Change_language">تغییر زبان</item>
         <item name="logout">خروج از سیستم</item>
     </string-array>
     <string name="title_activity_listening">حال گوش دادن</string>

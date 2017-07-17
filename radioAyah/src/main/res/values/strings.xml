@@ -20,7 +20,6 @@
         <item name="Listening_Schedule">Listening Schedule</item>
         <item name="SwitchPlayer">Switch Live Radio</item>
         <item name="MyDownload">My Downloads</item>
-        <item name="Change_language">Change Language</item>
         <item name="logout">Logout</item>
     </string-array>
     <string name="title_activity_listening">Listening</string>
