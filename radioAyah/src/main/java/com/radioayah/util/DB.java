@@ -31,7 +31,9 @@ public class DB extends SQLiteOpenHelper {
     public String droptablesugestions = "DROP TABLE IF EXISTS sugestions";
     public String querytablesurah = "CREATE TABLE surah (id integer PRIMARY KEY ,surah_name text, parah_number text)";
     public String droptablesurah = "DROP TABLE IF EXISTS 'parah'";
+    public String droptabledownloads= "DROP TABLE IF EXISTS 'downloads'";
     public String droptableparah = "DROP TABLE IF EXISTS 'surah'";
+    public String tabledonwloads = "CREATE TABLE downloads (id integer PRIMARY KEY AUTOINCREMENT,surah_name text, qari_name text, likes text, played text, download text , trackurl text)";
 
     public DB(Context context) {
         super(context, DATABASE_NAME, null, VERSION_NUMBER);
@@ -44,6 +46,7 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL(querytableparah);
         db.execSQL(querytablesurah);
         db.execSQL(querytablesugestions);
+        db.execSQL(tabledonwloads);
     }
 
     @Override
@@ -53,7 +56,21 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL(droptableparah);
         db.execSQL(droptablesurah);
         db.execSQL(droptablesugestions);
+        db.execSQL(droptabledownloads);
         onCreate(db);
+    }
+
+    public void insertDownload(String trackname,String qariname,String likes,String downloads,String plays,String trackURL)
+    {
+        SQLiteDatabase db = DB.this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("surah_name",trackname);
+        values.put("qari_name",qariname);
+        values.put("likes",likes);
+        values.put("download",downloads);
+        values.put("played",plays);
+        values.put("trackurl",trackURL);
+        db.insert("downloads", null, values);
     }
 
     public void insertCountries(final String countries) {
@@ -239,4 +256,6 @@ public class DB extends SQLiteOpenHelper {
         db.close();
         return records;
     }
+
+
 }

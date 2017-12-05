@@ -61,6 +61,7 @@ public class Download_Addaper extends ArrayAdapter<Download>
         TextView trackname = (TextView) row.findViewById(R.id.lv_surah_name);
         TextView likes = (TextView) row.findViewById(R.id.lv_likes_explore);
         TextView listens = (TextView) row.findViewById(R.id.lv_play_no_of_times);
+        TextView download = (TextView) row.findViewById(R.id.tb_download);
 
         final Track temp =  downloads.get(position);
 
@@ -68,6 +69,7 @@ public class Download_Addaper extends ArrayAdapter<Download>
         trackname.setText(temp.getName());
         likes.setText(temp.getLikes());
         listens.setText(temp.getListens());
+        download.setText(temp.getDownloads());
 
 
         String url = MainActivity.currentSession.admin_base_url
@@ -96,6 +98,8 @@ public class Download_Addaper extends ArrayAdapter<Download>
                 b.putString("image", temp.getImage());
                 b.putString("isdownloadable", temp.getIsdownloadable());
                 b.putString("likes", temp.getLikes());
+                b.putString("downloads", temp.getDownloads());
+                b.putString("isOffline", "true");
                 Fragment f = new TrackPlayFragment();
                 f.setArguments(b);
                 mng.beginTransaction().replace(R.id.content_frame, f)

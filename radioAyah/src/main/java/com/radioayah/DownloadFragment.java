@@ -9,13 +9,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.cybus.radioayah.R;
 import com.radioayah.adapters.Download_Addaper;
-import com.radioayah.adapters.ExploreAdapter;
-import com.radioayah.data.Download;
 import com.radioayah.data.Track;
 import com.radioayah.util.ASyncRequest;
 
@@ -95,6 +92,7 @@ public class DownloadFragment extends Fragment {
                 t.setIsdownloadable(inner.getString("isdownloadable"));
                 t.setJuz_from(inner.getString("juz_from"));
                 t.setLikes(inner.getString("likes"));
+                t.setDownloads(inner.getString("downloads"));
 
                 tracks.add(t);
 

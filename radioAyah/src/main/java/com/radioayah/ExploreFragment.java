@@ -156,6 +156,15 @@ public class ExploreFragment extends Fragment {
                             t.setIsdownloadable(inner.getString("isdownloadable"));
                             t.setJuz_from(inner.getString("juz_from"));
                             t.setLikes(inner.getString("likes"));
+                            if(inner.isNull("ufname"))
+                            {
+                                t.setUploader_name("Uploaded by : "+"Admin");
+                            }
+                            else{
+
+                                t.setUploader_name("Uploaded by : "+inner.getString("ufname")+" "+inner.getString("ulname"));
+                            }
+                            t.setDownloads(inner.getString("downloads"));
                             tracks.add(t);
                         }
                     }

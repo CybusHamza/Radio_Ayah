@@ -56,7 +56,7 @@ public class TrackPlayFragment extends Fragment {
     String Url = MainActivity.currentSession.track_url;
     Intent streamService;
     String liked = "";
-    String path;
+    String path,downloads;
     String isdownloadable;
     String url;
     public static Session currentSession;
@@ -83,10 +83,16 @@ public class TrackPlayFragment extends Fragment {
         Url += b.getString("path");
         path = b.getString("path");
         liked = (b.getString("like"));
+        downloads = (b.getString("downloads"));
         url = MainActivity.currentSession.admin_base_url +b.getString("aimage");
         isdownloadable = b.getString("isdownloadable");
         TextView t = (TextView) rootView
                 .findViewById(R.id.track_details_surah_name);
+        t.setText(b.getString("name"));
+
+        TextView uploaded = (TextView) rootView
+                .findViewById(R.id.uploaded);
+        uploaded.setText(b.getString("uploader_name"));
         t.setText(b.getString("name"));
         final String track_name = b.getString("name");
         final String contentid = b.getString("id");
@@ -95,6 +101,10 @@ public class TrackPlayFragment extends Fragment {
         t = (TextView) rootView
                 .findViewById(R.id.track_details_play_no_of_times);
         t.setText(b.getString("listens"));
+
+        t = (TextView) rootView
+                .findViewById(R.id.down_txt);
+        t.setText(downloads);
         t = (TextView) rootView.findViewById(R.id.track_details_likes_explore);
         t.setText(b.getString("likes"));
         ImageView img = (ImageView) rootView
@@ -190,11 +200,33 @@ public class TrackPlayFragment extends Fragment {
 
 
 
-                    if(reponce.equals("No internet Connection"))
+                    if(reponce.equals("No internet Connection") )
                     {
+                        if( b.get("isOffline").equals("true"))
+                        {
+                            String path = Environment.getExternalStorageDirectory()+"/Downloads/"+"Downloading "+b.getString("path");
+                            AmbientTrack track1 = AmbientTrack.newInstance();
 
 
-                        Toast.makeText(getActivity(), reponce, Toast.LENGTH_SHORT).show();
+                            track1.setName(b.getString("name"))
+                                    .setId(new Random().nextInt(100) + 1)
+                                    .setAlbumName(
+                                            b.getString("fname") + " "
+                                                    + b.getString("lname"))
+                                    .setAudioUri(Uri.parse(path));
+
+
+                            Ambience.activeInstance()
+                                    .setPlaylistTo(new AmbientTrack[]{track1}).play();
+                            MusicFragment.setButtons(true);
+
+                            MusicFragment.playing = true;
+                        }
+                        else {
+
+                            Toast.makeText(getActivity(), reponce, Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                     else {
                         Toast.makeText(context, "Buffering", Toast.LENGTH_LONG).show();
@@ -223,6 +255,8 @@ public class TrackPlayFragment extends Fragment {
                                         b.getString("fname") + " "
                                                 + b.getString("lname"))
                                 .setAudioUri(Uri.parse(Url));
+
+
 
                         Ambience.activeInstance()
                                 .setPlaylistTo(new AmbientTrack[]{track1}).play();

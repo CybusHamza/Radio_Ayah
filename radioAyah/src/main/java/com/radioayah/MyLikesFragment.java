@@ -88,6 +88,7 @@ public class MyLikesFragment extends Fragment {
                         t.setIsdownloadable(inner.getString("isdownloadable"));
                         t.setJuz_from(inner.getString("juz_from"));
                         t.setLikes(inner.getString("likes"));
+                        t.setDownloads(inner.getString("downloads"));
                         tracks.add(t);
                     }
                 }

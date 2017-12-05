@@ -21,7 +21,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/track_details"
+        android:layout_marginLeft="10dp"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/uploaded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="uploaded by"
+        android:textSize="12sp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/addCommentLayoutwrapper" />
 
     <LinearLayout
         android:id="@+id/track_details_header"
@@ -82,8 +93,8 @@
                     android:id="@+id/track_details_play_no_of_times"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="2dp"
                     android:layout_toEndOf="@+id/track_details_play_no_of_times_icon"
                     android:layout_toRightOf="@+id/track_details_play_no_of_times_icon"
                     android:text="12"
@@ -94,8 +105,8 @@
                     android:id="@+id/lv_likes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="2dp"
                     android:layout_toEndOf="@+id/track_details_play_no_of_times"
                     android:layout_toRightOf="@+id/track_details_play_no_of_times"
                     android:src="@drawable/heart" />
@@ -104,14 +115,36 @@
                     android:id="@+id/track_details_likes_explore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="2dp"
                     android:layout_toEndOf="@+id/lv_likes"
                     android:layout_toRightOf="@+id/lv_likes"
                     android:text="12"
                     android:textColor="@color/explore_listview_values_color"
                     android:textSize="20sp" />
 
+
+                <ImageView
+                    android:id="@+id/down"
+                    android:layout_marginLeft="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_download"
+                    android:layout_toEndOf="@+id/track_details_likes_explore"
+                    android:layout_toRightOf="@+id/track_details_likes_explore"
+                    />
+
+                <TextView
+                    android:id="@+id/down_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="12"
+                    android:textColor="@color/explore_listview_values_color"
+                    android:textSize="20sp"
+                    android:layout_toEndOf="@+id/down"
+                    android:layout_toRightOf="@+id/down"
+                    android:layout_marginEnd="23dp" />
                 <ImageView
                     android:id="@+id/lv_options"
                     android:layout_width="wrap_content"

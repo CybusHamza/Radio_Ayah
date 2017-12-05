@@ -110,6 +110,7 @@ public class QariDetailFragment extends Fragment {
                     t.setIsdownloadable(inner.getString("isdownloadable"));
                     t.setJuz_from(inner.getString("juz_from"));
                     t.setLikes(inner.getString("likes"));
+                    t.setDownloads(inner.getString("downloads"));
                     t.setLike("false");
                     for (int j = 0; j < likedid.length; j++) {
                         if (t.getId().equals(likedid[j])) {

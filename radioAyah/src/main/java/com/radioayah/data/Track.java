@@ -1,13 +1,31 @@
 package com.radioayah.data;
 
 public class Track {
-    private String id, artist_id, name, path, uploaded_by, isdownloadable,
+    private String id, artist_id,downloads, name, path, uploaded_by, isdownloadable,
             image, description, track_type, surah_id, ayah_from, ayah_to,
-            juz_id, juz_from, juz_to, duration, likes, listens, is_verified,
+            juz_id, juz_from,uploader_name, juz_to, duration, likes, listens, is_verified,
             upload_time, uploader, reason, otherDescription, aid, fname, lname,
             country_id, aimage, printable_name, like, admin_url = "";
 
+    public String getDownloads() {
+        return downloads;
+    }
+
+    public void setDownloads(String downloads) {
+        this.downloads = downloads;
+    }
+
+    public String getUploader_name() {
+        return uploader_name;
+    }
+
+    public void setUploader_name(String uploader_name) {
+        this.uploader_name = uploader_name;
+    }
+
     /**
+
+
      * @return the lname
      */
     public String getLname() {

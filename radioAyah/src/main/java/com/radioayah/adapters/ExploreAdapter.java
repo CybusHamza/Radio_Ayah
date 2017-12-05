@@ -93,6 +93,12 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
             t.setText(temp.getName());
             t = (TextView) row.findViewById(R.id.lv_play_no_of_times);
             t.setText(new StringBuilder().append(temp.getListens()).toString());
+
+
+            t = (TextView) row.findViewById(R.id.tb_download);
+            t.setText(new StringBuilder().append(temp.getDownloads()).toString());
+
+
              t_likes = (TextView) row
                     .findViewById(R.id.lv_likes_explore);
             t_likes.setText(new StringBuilder().append(temp.getLikes())
@@ -277,7 +283,10 @@ public class ExploreAdapter extends ArrayAdapter<ExploreListData> {
                 b.putString("aimage", temp.getAimage());
                 b.putString("image", temp.getImage());
                 b.putString("isdownloadable", temp.getIsdownloadable());
+                b.putString("downloads", temp.getDownloads());
                 b.putString("likes", t_likes.getText().toString());
+                b.putString("uploader_name", temp.getUploader_name());
+                b.putString("isOffline", "false");
                 Fragment f = new TrackPlayFragment();
                 f.setArguments(b);
                 mng.beginTransaction().replace(R.id.content_frame, f)

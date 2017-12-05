@@ -73,8 +73,9 @@
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_edittext"
         android:layout_below="@+id/project_select_surah_holder"
-        android:background="@drawable/rounded_edittext" />
+        android:layout_alignStart="@+id/project_select_surah_holder" />
 
     <LinearLayout
         android:id="@+id/from_to_holder"

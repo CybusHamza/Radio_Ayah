@@ -34,6 +34,7 @@ public class MusicFragment extends Fragment implements Ambience.AmbientListener 
     static ProgressBar pd ;
     private static boolean radio = false;
     static boolean schedule = false;
+    static boolean firstTime = false;
     public MusicFragment() {
 
     }
@@ -85,10 +86,18 @@ public class MusicFragment extends Fragment implements Ambience.AmbientListener 
                     {
                         SchedulePlayDialog.showCurrentAyah();
                     }
-                    Ambience.activeInstance().play();
+                    if(!firstTime)
+                    {
+                        Ambience.activeInstance().play();
+                    }else
+                    {
+                        Ambience.activeInstance().resume();
+                    }
+
                     playing = true;
                     mPlayButton.setImageResource(R.drawable.ic_action_pause);
                 } else if (loaded == true) {
+                    firstTime=true;
                     Ambience.activeInstance().pause();
                     mPlayButton.setImageResource(R.drawable.ic_action_play);
                     playing = false;
